@@ -1,18 +1,19 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Book from './Book';
-import store from '../redux/configureStore';
 
 const AllBooks = () => {
-  const {
-    books: { books },
-  } = store.getState();
+  const allBooks = useSelector((state) => state);
+  const { books } = allBooks;
   const Books = books.map((book) => {
     const {
       title,
       author,
       category,
       completed,
+      id,
     } = book;
+
     return (
       <Book
         key={Math.random()}
@@ -20,6 +21,7 @@ const AllBooks = () => {
         title={title}
         author={author}
         category={category}
+        id={id}
       />
     );
   });
