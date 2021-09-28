@@ -1,5 +1,5 @@
-# Math-Magicians-React-Redux
-This is a calculator app with other features built in it. It has some quotes on mathematics on a different page.
+# Bookstore-React-Redux
+This is a React application for managing books you want to read. It tracks your progress and makes the reading the books enlisted as a goal. The project is built using HTML, CSS, JavaScript, React, and Redux.
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
 
