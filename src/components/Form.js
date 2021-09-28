@@ -33,7 +33,6 @@ const Form = () => {
     setBook((prev) => ({
       ...prev,
       [name]: value,
-      id: uuidv4(),
     }));
   };
 
@@ -48,7 +47,17 @@ const Form = () => {
         <select name="category" onChange={hangleChange} value={category} id="books">
           {Options()}
         </select>
-        <button onClick={() => dispatch(addBook(book))} type="button" className="add-book-btn">
+        <button
+          onClick={() => {
+            const newState = {
+              ...book,
+              id: uuidv4(),
+            };
+            dispatch(addBook(newState));
+          }}
+          type="button"
+          className="add-book-btn"
+        >
           ADD BOOK
         </button>
       </form>
