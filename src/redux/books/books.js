@@ -5,8 +5,32 @@ const REMOVE_BOOK = 'bookstore/book/REMOVE_BOOK';
 const EDIT_BOOK = 'bookstore/book/EDIT_BOOK';
 const UPDATE_PROGRESS = 'bookstore/book/UPDATE_PROGRESS';
 
+const initialState = {
+  books: [
+    {
+      title: 'Book1',
+      author: 'Person1',
+      category: 'category1',
+      completed: '0%',
+    },
+    {
+      title: 'Book2',
+      author: 'Person2',
+      category: 'category2',
+      completed: '0%',
+    },
+    {
+      title: 'Book3',
+      author: 'Person3',
+      category: 'category3',
+      completed: '0%',
+    },
+  ],
+  category: [],
+};
+
 // Define reducer
-export default function reducer(state = {}, action = {}) {
+export default function reducer(state = initialState, action = {}) {
   const { book } = action;
   const books = JSON.parse(localStorage.getItem('books'));
   switch (action.type) {
