@@ -10,8 +10,7 @@ export default function reducer(state = initialState, action = {}) {
     case ADD_BOOK:
       return [...state, book];
     case REMOVE_BOOK:
-      console.log(id, '<<<.>>>');
-      return ([...state].filter((item) => item.id !== id));
+      return state.filter((item) => item.id !== id);
     default: return state;
   }
 }
