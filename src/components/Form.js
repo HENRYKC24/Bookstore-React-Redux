@@ -11,7 +11,7 @@ const Form = () => {
     author: '',
     category: 'Category 1',
     completed: '0%',
-    id: uuidv4(),
+    id: '',
   });
 
   const bookCategories = [
@@ -33,6 +33,7 @@ const Form = () => {
     setBook((prev) => ({
       ...prev,
       [name]: value,
+      id: uuidv4(),
     }));
   };
 
