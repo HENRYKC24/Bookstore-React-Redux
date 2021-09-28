@@ -7,20 +7,18 @@ const Input = ({
   placeholder,
   handleChange,
   className,
-}) => {
-  return (
-    <>
-      <input
-        onChange={(e) => handleChange(e)}
-        placeholder={placeholder}
-        value={value}
-        className={className}
-        name={name}
-        type="text"
-      />
-    </>
-  );
-};
+}) => (
+  <>
+    <input
+      onChange={(e) => handleChange(e)}
+      placeholder={placeholder}
+      value={value}
+      className={className}
+      name={name}
+      type="text"
+    />
+  </>
+);
 
 Input.propTypes = {
   name: propTypes.string.isRequired,
