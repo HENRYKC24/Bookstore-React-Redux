@@ -1,33 +1,34 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getFromServer } from '../redux/books/books';
 import Book from './Book';
 
 const AllBooks = () => {
+  const dispatch = useDispatch();
   const allBooks = useSelector((state) => state);
-  const { books } = allBooks;
+  const books = allBooks.books.length ? allBooks.books : [];
   const Books = books.map((book) => {
     const {
       title,
-      author,
       category,
-      completed,
       id,
     } = book;
 
     return (
       <Book
         key={Math.random()}
-        completed={completed}
         title={title}
-        author={author}
         category={category}
         id={id}
       />
     );
   });
 
+  useEffect(() => {
+    dispatch(getFromServer());
+  }, []);
+
   return <div>{Books}</div>;
 };
 
 export default AllBooks;
-// nU7PpkbrGSD80b3w1Lzl
