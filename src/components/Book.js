@@ -2,13 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import propTypes from 'prop-types';
 import { removeFromServer } from '../redux/books/books';
-// import BookPropLi from './BookPropLi';
 
 const Book = ({ title, category, id }) => {
-  // const data = [
-  //   title,
-  //   category,
-  // ];
   const [title2, author, completed, chapters, currChapter] = title.split('<*)$!?^|^?!$(*>');
   const dispatch = useDispatch();
   const remove = () => dispatch(removeFromServer(id));
