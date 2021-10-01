@@ -1,5 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Roboto+Slab:wght@500&display=swap');
+
+:root {
+  --blue: #0290ff;
+  --pale-white: #e8e8e8;
+}
+
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+.main {
+  min-height: 100vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  border-bottom: 1px solid #b4a9a9;
+  margin-bottom: 60px;
+}
+
+.first {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
+.item {
+  text-decoration: none;
+  font-size: 0.813rem;
+  color: black;
+}
+
+.category-page {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 45px;
+  margin-left: 5px;
+  color: var(--blue);
+  border: 1px solid #b4a9a9;
+  border-radius: 100%;
+}
+
+.app-name {
+  color: #0290ff;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.name-list-container {
+  display: flex;
+}
+
+.list-items {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.book {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 5vw;
+  padding: 15px 70px;
+  border: 0.5px solid grey;
+  border-radius: 5px;
+  min-height: 150px;
+}
+
+.category {
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  font-weight: bolder;
+  color: #929292;
+}
+
+.title {
+  font-size: 1.375rem;
+  font-weight: bold;
+  font-family: 'Roboto Slab', serif;
+  color: #121212;
+  margin-top: 5px;
+}
+
+.author {
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #4386bf;
+}
+
+.current-chapter {
+  opacity: 0.5;
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.813rem;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #121212;
+}
+
+.part1-second {
+  display: flex;
+  gap: 10px;
+  color: #4386bf;
+  margin-top: 10px;
+}
+
+.remove-button,
+.edit-button,
+.comment-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: #4386bf;
+  cursor: pointer;
+}
+
+.remove-button:hover,
+.edit-button:hover,
+.comment-button:hover {
+  color: rgb(13, 32, 32);
+}
+
+.pipe {
+  border: 1px solid;
+  border-left: none;
+  border-top: none;
+  border-bottom: none;
+  height: 50px;
+}
+
+.part2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.part2And3 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5vw;
+  padding-right: 10vw;
+}
+
+.percent {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: #121212;
+}
+
+.completed {
+  opacity: 0.5;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  color: #121212;
+}
+
+.chapter {
+  margin: 0.438rem 0 0.25rem 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1rem;
+  font-weight: 300;
+  color: #121212;
+}
+
+.update-button {
+  margin: 0.75rem 0 0.563rem;
+  padding: 0.438rem 1.188rem 0.5rem 1.375rem;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--blue);
+  color: #fff;
+}
+
+.circle-back {
+  fill: white;
+  stroke: rgb(228, 223, 223);
+  stroke-width: 8;
+}
+
+.circle-front {
+  fill: transparent;
+  stroke: var(--blue);
+  stroke-width: 8;
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
+}
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 60px 5vw;
+  border: 0.5px solid grey;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
+.add-new {
+  min-width: 10.875rem;
+  height: 1.5rem;
+  margin: 1.813rem 32.75rem 1.188rem 0;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.25rem;
+  font-weight: bolder;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.18px;
+  color: rgb(128, 121, 121);
+}
+
+.add-book-btn {
+  border: none;
+  background-color: var(--blue);
+  width: 10.875rem;
+  color: white;
+  height: 2.813rem;
+  border-radius: 5px;
+}
+
+.book-title,
+.book-author,
+.book-chapters,
+.book-category {
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: solid 1px var(--pale-white);
+  background-color: #fff;
+  width: 200px;
+  padding: 15px;
+  margin: 5px 20px 20px 0;
+  height: 2.813rem;
+}
+
+.footer {
+  text-align: center;
+  border-top: 1px solid #b4a9a9;
+  height: 100px;
+  line-height: 100px;
+  padding: 0;
+}
+
+.footer-text {
+  font-family: 'Roboto Slab', serif;
+  font-size: 0.8rem;
+  padding: 0;
+  margin: 0;
+  color: rgb(114, 101, 101);
+}
+
+@media screen and (min-width: 800px) {
+  .user {
+    height: 50px;
+  }
+
+  .app-name {
+    font-size: 1.875rem;
+    margin-right: 20px;
+  }
+
+  .footer-text {
+    font-size: 1rem;
+  }
 }

@@ -7,7 +7,16 @@ const AllBooks = () => {
   const dispatch = useDispatch();
   const allBooks = useSelector((state) => state);
   const books = allBooks.books.length ? allBooks.books : [];
-  const Books = books.map((book) => {
+  books.map((book) => {
+    const newBook = book;
+    const { title } = newBook;
+    const [,,,,,, timeStamp] = title.split('<*)$!?^|^?!$(*>');
+    newBook.timeStamp = timeStamp;
+    return newBook;
+  });
+  const Books = books.sort(
+    (a, b) => parseInt(a.timeStamp, 10) - parseInt(b.timeStamp, 10),
+  ).map((book) => {
     const {
       title,
       category,
@@ -28,7 +37,7 @@ const AllBooks = () => {
     dispatch(getFromServer());
   }, []);
 
-  return <div>{Books}</div>;
+  return <div className="all-books">{Books}</div>;
 };
 
 export default AllBooks;

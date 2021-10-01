@@ -3,15 +3,13 @@ import { NavLink } from 'react-router-dom';
 import propTypes from 'prop-types';
 
 const ListItem = ({ route, name, index }) => {
-  if (index < 2) {
+  if (index === 0) {
     return (
-      <>
-        <li>
-          <NavLink className="item" to={route} activeClassName="active-link" exact>
-            {name}
-          </NavLink>
-        </li>
-      </>
+      <li className="list-item first">
+        <NavLink className="item" to={route} activeClassName="active-link" exact>
+          {name}
+        </NavLink>
+      </li>
     );
   }
   return (

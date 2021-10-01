@@ -9,6 +9,11 @@ const Form = () => {
   const [book, setBook] = useState({
     title: '',
     category: 'Fiction',
+    author: '',
+    chapters: '',
+    currChapter: '0',
+    completed: '0%',
+    comments: [],
   });
 
   const bookCategories = [
@@ -40,19 +45,46 @@ const Form = () => {
   };
 
   const onAddBook = () => {
+    const {
+      title,
+      author,
+      completed,
+      category,
+      chapters,
+      currChapter,
+      comments,
+    } = book;
+    if (!title || !author || !chapters) {
+      return false;
+    }
     const newState = {
-      ...book,
+      title: `${title}<*)$!?^|^?!$(*>${author}<*)$!?^|^?!$(*>${completed}<*)$!?^|^?!$(*>${chapters}<*)$!?^|^?!$(*>${currChapter}<*)$!?^|^?!$(*>${comments}<*)$!?^|^?!$(*>${new Date().getTime()}`,
+      category,
       item_id: uuidv4(),
     };
     dispatch(sendToServer(newState));
+    setBook(() => ({
+      title: '',
+      category: 'Fiction',
+      author: '',
+      completed: '0%',
+      chapters: '',
+      currChapter: '0',
+    }));
+    return true;
   };
 
-  const { title, category } = book;
+  const {
+    title,
+    category,
+    author,
+    chapters,
+  } = book;
 
   return (
-    <div>
-      <h1>Add New Book</h1>
-      <form>
+    <div className="form-container">
+      <h1 className="add-new">Add New Book</h1>
+      <form className="form">
         <input
           name="title"
           type="text"
@@ -61,7 +93,24 @@ const Form = () => {
           placeholder="Book title"
           className="book-title"
         />
+        <input
+          name="author"
+          type="text"
+          onChange={hangleChange}
+          value={author}
+          placeholder="Author"
+          className="book-author"
+        />
+        <input
+          name="chapters"
+          type="number"
+          onChange={hangleChange}
+          value={chapters}
+          placeholder="Chapters"
+          className="book-chapters"
+        />
         <select
+          className="book-category"
           name="category"
           onChange={hangleChange}
           value={category}

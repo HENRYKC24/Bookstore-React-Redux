@@ -1,10 +1,11 @@
 import React from 'react';
+import { FaUser } from 'react-icons/fa';
 import ListItem from './ListItem';
 
 const Navbar = () => {
   const routes = [
-    { route: '/', name: 'Books' },
-    { route: '/categories', name: 'Categories' },
+    { route: '/', name: 'BOOKS' },
+    { route: '/categories', name: 'CATEGORIES' },
   ];
 
   const ListItems = () => (
@@ -19,13 +20,14 @@ const Navbar = () => {
   );
 
   return (
-    <nav>
-      <div>
-        <h1>Bookstore CMS</h1>
-        <ul>
+    <nav className="navbar">
+      <div className="name-list-container">
+        <h1 className="app-name">Bookstore CMS</h1>
+        <ul className="list-items">
           {ListItems()}
         </ul>
       </div>
+      <div className="user"><FaUser className="fa-user" /></div>
     </nav>
   );
 };
