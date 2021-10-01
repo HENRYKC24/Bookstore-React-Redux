@@ -213,8 +213,8 @@ body {
   fill: transparent;
   stroke: var(--blue);
   stroke-width: 8;
-  stroke-dasharray: 189;
-  stroke-dashoffset: 189;
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
 }
 
 .form-container {
