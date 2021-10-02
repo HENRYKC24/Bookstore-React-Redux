@@ -11,7 +11,7 @@ const Form = () => {
     category: 'Fiction',
     author: '',
     chapters: '',
-    currChapter: '0',
+    currChapter: '1',
     completed: '0%',
     comments: [],
   });
@@ -57,19 +57,19 @@ const Form = () => {
     if (!title || !author || !chapters) {
       return false;
     }
+    const string = JSON.stringify(comments);
     const newState = {
-      title: `${title}<*)$!?^|^?!$(*>${author}<*)$!?^|^?!$(*>${completed}<*)$!?^|^?!$(*>${chapters}<*)$!?^|^?!$(*>${currChapter}<*)$!?^|^?!$(*>${comments}<*)$!?^|^?!$(*>${new Date().getTime()}`,
+      title: `${title}<*)$!?^|^?!$(*>${author}<*)$!?^|^?!$(*>${completed}<*)$!?^|^?!$(*>${chapters}<*)$!?^|^?!$(*>${currChapter}<*)$!?^|^?!$(*>${string}<*)$!?^|^?!$(*>${new Date().getTime()}`,
       category,
       item_id: uuidv4(),
     };
     dispatch(sendToServer(newState));
-    setBook(() => ({
+    setBook((prev) => ({
+      ...prev,
       title: '',
-      category: 'Fiction',
       author: '',
-      completed: '0%',
       chapters: '',
-      currChapter: '0',
+      category: 'Fiction',
     }));
     return true;
   };
@@ -118,11 +118,7 @@ const Form = () => {
         >
           {Options()}
         </select>
-        <button
-          onClick={onAddBook}
-          type="button"
-          className="add-book-btn"
-        >
+        <button onClick={onAddBook} type="button" className="add-book-btn">
           ADD BOOK
         </button>
       </form>
