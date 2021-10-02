@@ -1,7 +1,21 @@
 # Bookstore-React-Redux
-This is a React application for managing books you want to read. It tracks your progress and makes the reading the books enlisted as a goal. The project is built using HTML, CSS, JavaScript, React, and Redux.
+This is a React application for managing books you want to read. It tracks your progress and makes reading the books enlisted as a goal. The project is built using HTML, CSS, JavaScript, React, and Redux.
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
+## Built With
+
+- HTML
+- CSS
+- JavaScript
+- React
+- Redux
+
+## Live Demo
+
+[Live Demo Link](https://henry-kc-bookstore-app.herokuapp.com/)
+
+![screenshot](./app_screenshot.png)
+![screenshot](./app_screenshot_mobile.png)
 
 ## Available Scripts
 
