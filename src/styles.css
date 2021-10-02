@@ -213,8 +213,7 @@ body {
   fill: transparent;
   stroke: var(--blue);
   stroke-width: 8;
-  stroke-dasharray: 250;
-  stroke-dashoffset: 250;
+  stroke-dasharray: 251;
 }
 
 .form-container {
@@ -279,6 +278,20 @@ body {
   padding: 0;
   margin: 0;
   color: rgb(114, 101, 101);
+}
+
+.edit-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (min-width: 800px) {
