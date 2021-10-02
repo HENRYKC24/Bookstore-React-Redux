@@ -16,7 +16,7 @@ const AllBooks = () => {
   });
   const Books = books.sort(
     (a, b) => parseInt(a.timeStamp, 10) - parseInt(b.timeStamp, 10),
-  ).map((book) => {
+  ).map((book, index) => {
     const {
       title,
       category,
@@ -29,6 +29,7 @@ const AllBooks = () => {
         title={title}
         category={category}
         id={id}
+        index={index}
       />
     );
   });
