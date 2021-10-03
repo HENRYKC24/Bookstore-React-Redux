@@ -11,7 +11,7 @@ const Comments = (props) => {
   const [, , , , , comments] = title.split('<*)$!?^|^?!$(*>');
   const allComments = () => (
     JSON.parse(comments).map((comment) => (
-      <tr key={uuidv4()}>
+      <tr className="tr" key={uuidv4()}>
         <td>{comment.name}</td>
         <td>{comment.comment}</td>
         <td>{comment.date}</td>
@@ -30,7 +30,7 @@ const Comments = (props) => {
     const { id, title, category } = props;
     const [title2, author, completed, chapters, currChapter, comments, timeStamp] = title.split('<*)$!?^|^?!$(*>');
     dispatch(removeFromServer(id));
-    newComment.date = new Date().toLocaleDateString();
+    newComment.date = new Date().toDateString();
     const jsonComment = JSON.parse(comments);
     jsonComment.push(newComment);
 
@@ -45,9 +45,16 @@ const Comments = (props) => {
 
   return (
     <div className="edit-container">
-      <div>
-        <table>
-          <tbody>{allComments()}</tbody>
+      <div className="comment-box">
+        <table className="comment-table">
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <th>Comment</th>
+              <th>Date</th>
+            </tr>
+            {allComments()}
+          </tbody>
         </table>
         <form>
           <input
@@ -66,7 +73,7 @@ const Comments = (props) => {
             placeholder="Add your comment"
             className="comment"
           />
-          <div>
+          <div className="comment-buttons">
             <button onClick={() => setShowComments((prev) => !prev)} type="button">Cancel</button>
             <button onClick={onAddComment} type="button">Add Comment</button>
           </div>
