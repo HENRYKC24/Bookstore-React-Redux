@@ -28,7 +28,7 @@ const Book = ({
     const secondStep = fraction * currChap;
     const thirdStep = 251 - secondStep;
     secondCircle.style.strokeDashoffset = thirdStep;
-  }, [progressValue]);
+  }, [progressValue, chapters, currChapter, index]);
   return (
     <div className="book">
       {editMode && (
