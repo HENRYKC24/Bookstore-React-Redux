@@ -291,15 +291,89 @@ body {
   z-index: 10;
   display: flex;
   justify-content: center;
-  align-items: center;
   backdrop-filter: blur(8px);
 }
 
 .comment-box {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background-color: #f1f1f1;
+  min-height: 70vh;
+  margin: 50px 10px;
+  padding: 10px;
+}
+
+.comment-table {
+  width: 92%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+}
+
+.add-heading {
+  margin-top: 50px;
+}
+
+.comment-form {
+  text-align: center;
+}
+
+.comment-table td,
+.comment-table th {
+  border: 1px solid #686464;
+  padding: 5px;
+}
+
+.comment-form > * {
+  width: 250px;
+  align-self: center;
+  margin: 10px 0;
+}
+
+.comment-form input,
+.comment-form textarea {
+  min-height: 30px;
+  width: 90%;
+}
+
+.comment-buttons {
+  margin: 0;
+  width: 100%;
+}
+
+.comment-box button {
+  width: 150px;
+  margin-right: 5px;
+}
+
+.add-comment,
+.comment-box .cancel {
+  background-color: var(--blue);
+  height: 30px;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-box .cancel:hover {
+  background-color: rgb(170, 24, 24);
+  color: var(--pale-white);
+}
+
+.add-comment:hover {
+  background-color: rgb(14, 129, 14);
+  color: var(--pale-white);
+}
+
+.comment-box .cancel:active,
+.add-comment:active {
   background-color: #fff;
-  height: 400px;
+  color: #000;
 }
 
 @media screen and (min-width: 800px) {
