@@ -11,7 +11,7 @@ const Comments = (props) => {
   const [, , , , , comments] = title.split('<*)$!?^|^?!$(*>');
   const allComments = () => (
     JSON.parse(comments).map((comment) => (
-      <tr key={uuidv4()}>
+      <tr className="comment-tr" key={uuidv4()}>
         <td>{comment.name}</td>
         <td>{comment.comment}</td>
         <td>{comment.date}</td>
@@ -27,10 +27,13 @@ const Comments = (props) => {
   };
 
   const onAddComment = () => {
+    if (!newComment.name && !newComment.comment) {
+      return;
+    }
     const { id, title, category } = props;
     const [title2, author, completed, chapters, currChapter, comments, timeStamp] = title.split('<*)$!?^|^?!$(*>');
     dispatch(removeFromServer(id));
-    newComment.date = new Date().toLocaleDateString();
+    newComment.date = new Date().toDateString();
     const jsonComment = JSON.parse(comments);
     jsonComment.push(newComment);
 
@@ -45,11 +48,24 @@ const Comments = (props) => {
 
   return (
     <div className="edit-container">
-      <div>
-        <table>
-          <tbody>{allComments()}</tbody>
+      <div className="comment-box">
+        <h1>
+          All Comments
+          {' '}
+          {JSON.parse(comments).length}
+        </h1>
+        <table className="comment-table">
+          <tbody className="comment-tb">
+            <tr className="comment-tr">
+              <th>Name</th>
+              <th>Comment</th>
+              <th>Date</th>
+            </tr>
+            {allComments()}
+          </tbody>
         </table>
-        <form>
+        <h1 className="add-heading">Add A Comment</h1>
+        <form className="comment-form">
           <input
             name="name"
             type="text"
@@ -66,9 +82,9 @@ const Comments = (props) => {
             placeholder="Add your comment"
             className="comment"
           />
-          <div>
-            <button onClick={() => setShowComments((prev) => !prev)} type="button">Cancel</button>
-            <button onClick={onAddComment} type="button">Add Comment</button>
+          <div className="comment-buttons">
+            <button className="cancel" onClick={() => setShowComments((prev) => !prev)} type="button">Cancel</button>
+            <button className="add-comment" onClick={onAddComment} type="button">Add Comment</button>
           </div>
         </form>
       </div>
