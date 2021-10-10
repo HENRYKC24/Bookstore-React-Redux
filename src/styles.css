@@ -348,6 +348,8 @@ th {
 .comment-buttons {
   margin: 0;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .comment-box button {
