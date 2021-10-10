@@ -20,6 +20,26 @@ const Book = ({
   const dispatch = useDispatch();
   const remove = () => dispatch(removeFromServer(id));
 
+  const toggleBodyScroll = () => {
+    const body = document.querySelector('body');
+    body.classList.toggle('stop-scrolling');
+  };
+
+  const displayComments = () => {
+    setShowComments((prev) => !prev);
+    toggleBodyScroll();
+  };
+
+  const onClickUpdate = () => {
+    setShowProgress((prev) => !prev);
+    toggleBodyScroll();
+  };
+
+  const onClickEdit = () => {
+    setEditMode((prev) => !prev);
+    toggleBodyScroll();
+  };
+
   useEffect(() => {
     const secondCircle = document.querySelector(`.some${index}`);
     const chap = parseInt(chapters, 10);
@@ -37,6 +57,7 @@ const Book = ({
           category={category}
           id={id}
           setEditBook={setEditMode}
+          toggleBodyScroll={toggleBodyScroll}
         />
       )}
       {showComments && (
@@ -45,6 +66,7 @@ const Book = ({
           id={id}
           category={category}
           setShowComments={setShowComments}
+          toggleBodyScroll={toggleBodyScroll}
         />
       )}
       {showProgress && (
@@ -54,6 +76,7 @@ const Book = ({
           category={category}
           setShowProgress={setShowProgress}
           setProgressValue={setProgressValue}
+          toggleBodyScroll={toggleBodyScroll}
         />
       )}
       <div className="part1">
@@ -64,7 +87,7 @@ const Book = ({
         </div>
         <div className="part1-second">
           <button
-            onClick={() => setShowComments((prev) => !prev)}
+            onClick={displayComments}
             className="comment-button"
             type="button"
           >
@@ -76,7 +99,7 @@ const Book = ({
           </button>
           |
           <button
-            onClick={() => setEditMode((prev) => !prev)}
+            onClick={onClickEdit}
             className="edit-button"
             type="button"
           >
@@ -102,7 +125,7 @@ const Book = ({
             <span className="capterXOfY">{`Chapter ${currChapter} of ${chapters}`}</span>
           </div>
           <button
-            onClick={() => setShowProgress((prev) => !prev)}
+            onClick={onClickUpdate}
             className="update-button"
             type="button"
           >

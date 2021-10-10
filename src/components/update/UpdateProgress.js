@@ -10,6 +10,7 @@ const UpdateProgress = ({
   id,
   category,
   setShowProgress,
+  toggleBodyScroll,
 }) => {
   const dispatch = useDispatch();
   const [title2, author, completed, chapters,, comments, timeStamp] = title.split('<*)$!?^|^?!$(*>');
@@ -18,7 +19,7 @@ const UpdateProgress = ({
   const Options = () => {
     const chaptersArray = [];
     const num = parseInt(chapters, 10);
-    for (let i = 1; i <= num; i += 1) {
+    for (let i = 0; i <= num; i += 1) {
       chaptersArray.push(i);
     }
     return chaptersArray.map((num, index) => (
@@ -36,7 +37,12 @@ const UpdateProgress = ({
     setSetChapter(() => value);
   };
 
-  const onAddComment = () => {
+  const closePopup = () => {
+    setShowProgress((prev) => !prev);
+    toggleBodyScroll();
+  };
+
+  const updateProgress = () => {
     dispatch(removeFromServer(id));
 
     const newState = {
@@ -45,6 +51,7 @@ const UpdateProgress = ({
       item_id: uuidv4(),
     };
     setTimeout(() => dispatch(sendToServer(newState)), 1000);
+    toggleBodyScroll();
   };
 
   return (
@@ -59,8 +66,12 @@ const UpdateProgress = ({
         >
           {Options()}
         </select>
-        <button onClick={() => setShowProgress((prev) => !prev)} type="button">Cancel</button>
-        <button onClick={onAddComment} type="button">Update Progress</button>
+        <button onClick={closePopup} type="button">
+          Cancel
+        </button>
+        <button onClick={updateProgress} type="button">
+          Update Progress
+        </button>
       </div>
     </div>
   );
@@ -71,6 +82,7 @@ UpdateProgress.propTypes = {
   id: propTypes.string.isRequired,
   category: propTypes.string.isRequired,
   setShowProgress: propTypes.func.isRequired,
+  toggleBodyScroll: propTypes.func.isRequired,
 };
 
 export default UpdateProgress;

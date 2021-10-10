@@ -10,6 +10,7 @@ const EditBook = ({
   category,
   id,
   setEditBook,
+  toggleBodyScroll,
 }) => {
   const bookCategories = [
     { value: 'Fiction', content: 'Fiction' },
@@ -71,7 +72,13 @@ const EditBook = ({
       chapters: '',
       currChapter: '0',
     }));
+    toggleBodyScroll();
     return true;
+  };
+
+  const onClickCancel = () => {
+    setEditBook((prev) => !prev);
+    toggleBodyScroll();
   };
 
   return (
@@ -123,7 +130,7 @@ const EditBook = ({
           />
         </div>
         <div>
-          <button onClick={() => setEditBook((prev) => !prev)} type="button">Cancel</button>
+          <button onClick={onClickCancel} type="button">Cancel</button>
           <button onClick={save} type="button">Save</button>
         </div>
       </form>
@@ -136,6 +143,7 @@ EditBook.propTypes = {
   category: propTypes.string.isRequired,
   id: propTypes.string.isRequired,
   setEditBook: propTypes.func.isRequired,
+  toggleBodyScroll: propTypes.func.isRequired,
 };
 
 export default EditBook;

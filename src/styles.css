@@ -11,6 +11,11 @@ body {
   box-sizing: border-box;
 }
 
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 .main {
   min-height: 100vh;
   flex: 1;
@@ -300,6 +305,7 @@ body {
   align-items: center;
   background-color: #f1f1f1;
   min-height: 70vh;
+  overflow-y: scroll;
   margin: 50px 10px;
   padding: 10px;
 }
