@@ -7,7 +7,7 @@ import { removeFromServer, sendToServer } from '../../redux/books/books';
 const Comments = (props) => {
   const dispatch = useDispatch();
   const [newComment, setNewComment] = useState({ name: '', comment: '' });
-  const { title, setShowComments } = props;
+  const { title, setShowComments, toggleBodyScroll } = props;
   const [, , , , , comments] = title.split('<*)$!?^|^?!$(*>');
   const allComments = () => (
     JSON.parse(comments).map((comment) => (
@@ -44,6 +44,12 @@ const Comments = (props) => {
       item_id: uuidv4(),
     };
     setTimeout(() => dispatch(sendToServer(newState)), 1000);
+    toggleBodyScroll();
+  };
+
+  const onCancel = () => {
+    setShowComments((prev) => !prev);
+    toggleBodyScroll();
   };
 
   return (
@@ -79,11 +85,11 @@ const Comments = (props) => {
             type="text"
             onChange={hangleChange}
             value={newComment.comment}
-            placeholder="Add your comment"
+            placeholder="Write your comment"
             className="comment"
           />
           <div className="comment-buttons">
-            <button className="cancel" onClick={() => setShowComments((prev) => !prev)} type="button">Cancel</button>
+            <button className="cancel" onClick={onCancel} type="button">Cancel</button>
             <button className="add-comment" onClick={onAddComment} type="button">Add Comment</button>
           </div>
         </form>
@@ -97,6 +103,7 @@ Comments.propTypes = {
   title: propTypes.string.isRequired,
   category: propTypes.string.isRequired,
   setShowComments: propTypes.func.isRequired,
+  toggleBodyScroll: propTypes.func.isRequired,
 };
 
 export default Comments;

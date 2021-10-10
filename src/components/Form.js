@@ -11,7 +11,7 @@ const Form = () => {
     category: 'Fiction',
     author: '',
     chapters: '',
-    currChapter: '1',
+    currChapter: '0',
     completed: '0%',
     comments: [],
   });
