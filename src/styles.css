@@ -382,6 +382,64 @@ th {
   color: #000;
 }
 
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--blue);
+  color: #fff;
+  font-weight: bolder;
+  font-size: 1rem;
+  height: max-content;
+  margin-top: 50px;
+  padding: 30px 10px;
+  width: 90%;
+}
+
+.edit-form div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 10px;
+  padding: 0;
+}
+
+.edit-form div input,
+.edit-form div select {
+  margin: 0;
+}
+
+.edit-cancel-btn,
+.edit-save-btn {
+  border: none;
+  border-radius: 5px;
+  width: 120px;
+  height: 40px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.edit-cancel-btn {
+  background-color: rgb(196, 56, 56);
+}
+
+.edit-save-btn {
+  background-color: rgb(46, 119, 32);
+}
+
+.edit-cancel-btn:hover,
+.edit-save-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.edit-cancel-btn:active,
+.edit-save-btn:active {
+  background-color: #fff;
+  color: #000;
+}
+
 @media screen and (min-width: 800px) {
   .user {
     height: 50px;
@@ -394,5 +452,14 @@ th {
 
   .footer-text {
     font-size: 1rem;
+  }
+
+  .edit-form {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    margin-top: 50px;
+    padding: 30px 10px;
+    width: 400px;
   }
 }

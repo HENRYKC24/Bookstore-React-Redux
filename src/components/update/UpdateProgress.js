@@ -56,7 +56,7 @@ const UpdateProgress = ({
 
   return (
     <div className="edit-container">
-      <div>
+      <div className="update-container">
         <span>Select Current Progress</span>
         <select
           className="chapter"
@@ -66,12 +66,14 @@ const UpdateProgress = ({
         >
           {Options()}
         </select>
-        <button onClick={closePopup} type="button">
-          Cancel
-        </button>
-        <button onClick={updateProgress} type="button">
-          Update Progress
-        </button>
+        <div className="update-buttons">
+          <button onClick={closePopup} type="button">
+            Cancel
+          </button>
+          <button onClick={updateProgress} type="button">
+            Update Progress
+          </button>
+        </div>
       </div>
     </div>
   );
