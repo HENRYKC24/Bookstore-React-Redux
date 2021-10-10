@@ -24,8 +24,8 @@ const UpdateProgress = ({
     }
     return chaptersArray.map((num, index) => (
       <Option
-        key={Math.random()}
-        value={num}
+        key={uuidv4()}
+        value={num.toString()}
         content={`Chapter ${num}`}
         index={index}
       />
@@ -57,7 +57,8 @@ const UpdateProgress = ({
   return (
     <div className="edit-container">
       <div className="update-container">
-        <span>Select Current Progress</span>
+        <span className="heading">Select Current Progress</span>
+        <span>(Last Completed Chapter)</span>
         <select
           className="chapter"
           name="chapter"

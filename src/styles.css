@@ -440,6 +440,37 @@ th {
   color: #000;
 }
 
+.update-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.update-container > * {
+  margin-bottom: 20px;
+}
+
+.update-container .heading {
+  font-size: 1.2rem;
+}
+
+.update-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.update-buttons button {
+  width: 150px;
+  border: none;
+  height: 30px;
+  border-radius: 5px;
+  background-color: var(--blue);
+  color: #fff;
+  font-size: 1rem;
+}
+
 @media screen and (min-width: 800px) {
   .user {
     height: 50px;
@@ -461,5 +492,9 @@ th {
     margin-top: 50px;
     padding: 30px 10px;
     width: 400px;
+  }
+
+  .update-container {
+    width: 350px;
   }
 }
