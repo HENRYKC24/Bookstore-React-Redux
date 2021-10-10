@@ -50,7 +50,6 @@ const UpdateProgress = ({
       category,
       item_id: uuidv4(),
     };
-    console.log(newState, 'new state');
     setTimeout(() => dispatch(sendToServer(newState)), 1000);
     toggleBodyScroll();
   };
