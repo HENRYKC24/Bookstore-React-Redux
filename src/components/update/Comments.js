@@ -56,9 +56,9 @@ const Comments = (props) => {
     <div className="edit-container">
       <div className="comment-box">
         <h1>
-          All Comments
-          {' '}
+          All Comments (
           {JSON.parse(comments).length}
+          )
         </h1>
         <table className="comment-table">
           <tbody className="comment-tb">

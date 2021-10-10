@@ -25,7 +25,7 @@ const EditBook = ({
       <Option
         key={Math.random()}
         index={index}
-        value={value}
+        value={value.toString()}
         content={content}
       />
     );
@@ -48,10 +48,20 @@ const EditBook = ({
 
   const hangleChange = (e) => {
     const { name, value } = e.target;
-    setBook((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setBook((prev) => {
+      if (name === 'chapters' && (parseInt(value, 10) < parseInt(chapters, 10))) {
+        return ({
+          ...prev,
+          currChapter: '0',
+          [name]: value,
+        });
+      }
+      return ({
+        ...prev,
+        currChapter,
+        [name]: value,
+      });
+    });
   };
 
   const save = () => {
@@ -130,8 +140,8 @@ const EditBook = ({
           />
         </div>
         <div>
-          <button onClick={onClickCancel} type="button">Cancel</button>
-          <button onClick={save} type="button">Save</button>
+          <button className="edit-cancel-btn" onClick={onClickCancel} type="button">Cancel</button>
+          <button className="edit-save-btn" onClick={save} type="button">Save</button>
         </div>
       </form>
     </section>
