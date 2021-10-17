@@ -63,8 +63,9 @@ body {
 
 .app-name {
   color: #0290ff;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: bold;
+  width: fit-content;
 }
 
 .name-list-container {
@@ -75,7 +76,7 @@ body {
   display: flex;
   align-items: center;
   list-style-type: none;
-  gap: 2rem;
+  gap: 1rem;
   margin: 0;
   padding: 0;
 }
@@ -168,6 +169,7 @@ body {
 }
 
 .part2And3 {
+  margin-left: -40px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
