@@ -36,7 +36,7 @@ const AllBooks = () => {
 
   useEffect(() => {
     dispatch(getFromServer());
-  }, []);
+  }, [dispatch]);
 
   return <div className="all-books">{Books}</div>;
 };
