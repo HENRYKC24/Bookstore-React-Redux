@@ -42,7 +42,7 @@ const Book = ({
 
   useEffect(() => {
     const secondCircle = document.querySelector(`.some${index}`);
-    const chap = parseInt(chapters, 10);
+    const chap = parseInt(chapters || 1, 10);
     const currChap = parseInt(currChapter, 10);
     const fraction = 251 / chap;
     const secondStep = fraction * currChap;

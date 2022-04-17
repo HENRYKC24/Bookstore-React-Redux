@@ -10,7 +10,7 @@ const AllBooks = () => {
   books.map((book) => {
     const newBook = book;
     const { title } = newBook;
-    const [,,,,,, timeStamp] = title.split('<*)$!?^|^?!$(*>');
+    const [,,,,,, timeStamp] = title.split('<*$!?^|^?!$*>');
     newBook.timeStamp = timeStamp;
     return newBook;
   });
