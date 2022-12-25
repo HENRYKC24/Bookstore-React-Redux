@@ -45,14 +45,14 @@ export default function reducer(state = initialState, action = {}) {
 
 export const getFromServer = () => async (dispatch) => {
   const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
-  const books = await fetch(`${url}/apps/nU7PpkbrGSD80b3w1Lzl/books/`);
+  const books = await fetch(`${url}/apps/OWUPa39kEf5J2wbPr5QH/books/`);
   const result = await books.json();
   dispatch(getBooks(result));
 };
 
 export const sendToServer = (data) => (dispatch) => {
   const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
-  fetch(`${url}/apps/nU7PpkbrGSD80b3w1Lzl/books/`, {
+  fetch(`${url}/apps/OWUPa39kEf5J2wbPr5QH/books/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export const sendToServer = (data) => (dispatch) => {
 
 export const removeFromServer = (id) => (dispatch) => {
   const url = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi';
-  fetch(`${url}/apps/nU7PpkbrGSD80b3w1Lzl/books/${id}`, {
+  fetch(`${url}/apps/OWUPa39kEf5J2wbPr5QH/books/${id}`, {
     method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
